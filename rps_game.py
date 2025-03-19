@@ -2,6 +2,21 @@ import json
 import os
 
 
+"""
+    Input:
+        choice1 The choice of player1 (rock, paper, or scissors).
+        choice2 The choice of player2 (rock, paper, or scissors).
+        player1 The name of the first player.
+        player2 The name of the second player.
+
+    Document:
+        This function determines the winner of a Rock-Paper-Scissors match.
+        It compares the choices of both players and returns the winner.
+        If both players choose the same option, the match is a tie.
+
+    Return:
+        The name of the winning player, or "tie" if the match is a draw.
+    """
 def calculate_winner_in_match(choice1, choice2, player1, player2):
     rules = {"rock": "scissors", "paper": "rock", "scissors": "paper"}
 
@@ -14,8 +29,18 @@ def calculate_winner_in_match(choice1, choice2, player1, player2):
         return player2
 
 
+"""
+    Input:
+        A dictionary with player names as keys and lists as values.
+        Each list contains [matches, wins, proportion] for the player.
 
+    Document:
+        Sorts the players by their win proportion and checks for a tie. 
+        Returns the player with the highest proportion, or "tie" if there's a draw.
 
+    Return:
+        The name of the winner or "tie".
+"""
 def calculate_winner_in_game(results):
     # returning a sorted (by proportion) list of tuples [key,[matches,wins,proportions]]
     sorted_results = sorted(results.items(), key=lambda player: player[1][2], reverse=True) #[1][2] = proportion
@@ -26,7 +51,17 @@ def calculate_winner_in_game(results):
     else:
         return sorted_results[0][0] # returning the name of the winner
 
+"""
+    Input:
+        The name of the file containing match results.
 
+    Document:
+        Reads the results from a file, processes match data, and calculates the winner based on the win ratio.
+        The function returns the name of the player with the highest win ratio, or "tie" if there's no winner.
+        
+    Return:
+        The name of the champion or "tie".
+ """
 def game(results_filename):
     if not os.path.exists(results_filename):
         print(f"Error: The file '{results_filename}' does not exist.")
