@@ -3,3 +3,4 @@ Moshe   rock           Ayelet  scissors
 David   scissors       Noam    paper
 David   rock           Moshe   paper
 Moshe   rock           Noam    paper
+David   rock           Ayelet  scissors
