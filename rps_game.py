@@ -63,6 +63,7 @@ def calculate_winner_in_game(results):
         The name of the champion or "tie".
  """
 def game(results_filename):
+    print(f"Starting the game with {results_filename}")
     if not os.path.exists(results_filename):
         print(f"Error: The file '{results_filename}' does not exist.")
         return None  # Exit gracefully
@@ -101,7 +102,6 @@ def game(results_filename):
 
         the_champion = calculate_winner_in_game(results)
 
-    print(f"Starting the game with {results_filename}")
     return the_champion
 
 

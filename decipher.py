@@ -31,8 +31,10 @@ def load_lexicon(lexicon_filename):
 
 
 def decipher_phrase(phrase, lexicon_filename, abc_filename):
+    print(f'starting deciphering using {lexicon_filename} and {abc_filename}')
     if not phrase:
-        return {"status": 0, "orig_phrase": '', "K": -1}
+        result = {"status": 0, "orig_phrase": '', "K": -1}
+        return result
 
     words_list = phrase.split() # make a words list from phrase
     split_words = [list(word) for word in words_list] # make a list of words list
@@ -65,8 +67,6 @@ def decipher_phrase(phrase, lexicon_filename, abc_filename):
                                                  # make a full phrase string
             return result
 
-
-    print(f'starting deciphering using {lexicon_filename} and {abc_filename}')
     # if all loop is finished and we didn't return a deciphered phrase so we can't decipher this phrase
     result = {"status": -1, "orig_phrase": '', "K": -1}
     return result
